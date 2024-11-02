@@ -1,5 +1,3 @@
-"use client"
-
 export default async function Home() {
   const data = await fetch("https://cui62vu26d.execute-api.ap-southeast-2.amazonaws.com/default/OligarchyScraper");
   const companies = await data.json();
@@ -17,7 +15,7 @@ export default async function Home() {
         </thead>
         <tbody>
           {companies.map((company: string[]) => (
-            <tr>
+            <tr key={company[0]}>
               <td>{company[0]}</td>
               <td>{company[1]}</td>
               <td>{company[2]}</td>
